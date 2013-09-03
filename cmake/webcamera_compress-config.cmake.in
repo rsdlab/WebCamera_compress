@@ -1,0 +1,54 @@
+# WebCamera_compress CMake config file
+#
+# This file sets the following variables:
+# WebCamera_compress_FOUND - Always TRUE.
+# WebCamera_compress_INCLUDE_DIRS - Directories containing the WebCamera_compress include files.
+# WebCamera_compress_IDL_DIRS - Directories containing the WebCamera_compress IDL files.
+# WebCamera_compress_LIBRARIES - Libraries needed to use WebCamera_compress.
+# WebCamera_compress_DEFINITIONS - Compiler flags for WebCamera_compress.
+# WebCamera_compress_VERSION - The version of WebCamera_compress found.
+# WebCamera_compress_VERSION_MAJOR - The major version of WebCamera_compress found.
+# WebCamera_compress_VERSION_MINOR - The minor version of WebCamera_compress found.
+# WebCamera_compress_VERSION_REVISION - The revision version of WebCamera_compress found.
+# WebCamera_compress_VERSION_CANDIDATE - The candidate version of WebCamera_compress found.
+
+message(STATUS "Found WebCamera_compress-@PROJECT_VERSION@")
+set(WebCamera_compress_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(WebCamera_compress_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(WebCamera_compress_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(WebCamera_compress_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(WebCamera_compress_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(WebCamera_compress_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(WebCamera_compress_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(WebCamera_compress_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(WebCamera_compress_VERSION @PROJECT_VERSION@)
+set(WebCamera_compress_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(WebCamera_compress_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(WebCamera_compress_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(WebCamera_compress_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+
