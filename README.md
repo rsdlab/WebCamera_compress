@@ -1,6 +1,8 @@
 =============================
-Now, This component is integrated to WebCamera RT component !
+Important Information
 =============================
+Now, This component is integrated to WebCamera RT component !
+
 
 Web Camera RTC with common camera interface and compressed image data transmission.
 
